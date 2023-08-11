@@ -1,23 +1,22 @@
-require("dotenv").config();
+import express from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
 
-const mongoose = require("mongoose");
-const express = require("express");
-import cars from "cars";
+import Connection from './database/db.js';
+import Routes from './routes/route.js';
 
-
-//express app
 const app = express();
 
-app.use(cars())
 
-//connect to db
-mongoose.connect(process.env.MONG_URL)
-.then(() =>{
-    //listen for requests
-    app.listen(process.env.PORT, () => {
-        console.log('connected to  db & listening on port' , process.env.PORT);
-    })
-})
-.catch((error) => {
-    console.log(error);
-})
+app.use(cors());
+
+app.use(bodyParser.json({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }))
+
+app.use('/', Routes);
+
+const PORT = 8686;
+
+Connection();
+
+app.listen(PORT, () => console.log(`Your server is running successfully on PORT ${PORT}`));
