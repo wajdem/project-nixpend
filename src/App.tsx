@@ -1,7 +1,7 @@
 import React from "react";
-import AccountData from "./components/AccountSection/AccountData";
-import Footer from "./components/Footer";
-import Menu from "./components/Menu/Menu";
+// import AccountData from "./components/AccountSection/AccountData";
+// import Footer from "./components/Footer";
+// import Menu from "./components/Menu/Menu";
 import TasksSection from "./components/TasksSection/TasksSection";
 import ModalCreateTask from "./components/Utilities/ModalTask";
 import { Task } from "./interfaces";
@@ -31,10 +31,10 @@ const App: React.FC = () => {
           onConfirm={createNewTaskHandler}
         />
       )}
-      <Menu />
+      {/* <Menu /> */}
       <TasksSection />
-      <Footer />
-      <AccountData />
+      {/* <Footer /> */}
+      {/* <AccountData /> */}
     </div>
   );
 };
