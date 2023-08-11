@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { todosReducers } from './todosReducer';
-import { tabReducer } from './reducers/tabReducer';
+import { tabReducer } from './tabReducer';
 
 const reducer = combineReducers({
     todos: todosReducers,

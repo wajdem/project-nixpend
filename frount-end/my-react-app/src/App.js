@@ -1,16 +1,19 @@
-import './App.css'
-import React from 'react'
-import Header from './components/Header'
-import ToDoForm from './components/ToDoForm'
+
+import './App.css';
+
+// components
+import Header from './components/Header';
+import TodoForm from './components/ToDoForm';
+import Todos from './components/Todos';
 
 function App() {
   return (
     <div>
       <Header />
-      <ToDoForm/>
+      <TodoForm />
+      <Todos />
     </div>
-  )
+  );
 }
 
-export default App
-
+export default App;

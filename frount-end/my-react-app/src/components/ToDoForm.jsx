@@ -1,33 +1,37 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addNewTodo } from "../redux/actions/index";
 
-const  ToDoForm =() =>{
-    const [text, setText] = useState("")
+import { useDispatch } from "react-redux";
+
+import { addNewTodo } from "../redux/actions";
+
+
+const TodoForm = () => {
+    const [text, setText] = useState("");
 
     const dispatch = useDispatch();
 
     const onFormSubmit = (e) => {
-       e.preventDefault();
+        e.preventDefault();
 
-       dispatch(addNewTodo(text));
+        dispatch(addNewTodo(text));
+
+        setText('');
     }
 
     const onInputChange = (e) => {
-        // console.log(e.target.value);
-        setText(e.target.value)
+        setText(e.target.value);
     }
-  return (
-    <>
-    <form className='form' onSubmit={onFormSubmit}>
-        <input 
-        placeholder='Enter your new a task ...'
-        className='input'
-        onChange={onInputChange}
-        />
-    </form>
-    </>
-  )
+
+    return (
+        <form className="form" onSubmit={onFormSubmit}>
+            <input  
+                placeholder="Enter new todo..."
+                className="input"
+                onChange={onInputChange}
+                value={text}
+            />
+        </form>
+    )
 }
 
-export default ToDoForm
+export default TodoForm;
